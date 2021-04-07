@@ -18,6 +18,7 @@ export class TrashListComponent implements OnInit {
   public deleteMessage = '';
   public deleteConfirm = false;
   public noteId = '';
+  loader=false;
   constructor(private http: HttpClient) {}
   ngOnInit() {
     this.userId = JSON.parse(localStorage.getItem('userData') || '').id;
@@ -25,7 +26,7 @@ export class TrashListComponent implements OnInit {
   }
   // Get Trash List Here
   public getTrashList() {
-    console.log('Get Trash');
+    this.loader=true;
     const getTrashListUrl = `https://note-square-default-rtdb.firebaseio.com/${this.userId}/notes.json`;
     this.http.get<any>(getTrashListUrl).subscribe((res) => {
       const noteResult = res && Object.values(res);
@@ -36,6 +37,7 @@ export class TrashListComponent implements OnInit {
       } else {
         this.notesTrash = [];
       }
+      this.loader=false;
     });
   }
 

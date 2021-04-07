@@ -14,11 +14,17 @@
       </div>
     </div>
   </div>
-  <div *ngIf="!notesTrash?.length"
-    class="d-flex justify-content-center align-items-center flex-column vh-height  not-found-text">
-    <span class="material-icons">delete_sweep</span>
-    <p>No notes in Trash</p>
-  </div>
+
+  <div class="d-flex justify-content-center align-items-center not-found-text">
+		<div class="spinner-border text-light text-center" role="status" *ngIf="loader">
+			<span class="sr-only">Loading...</span>
+		</div>
+		<div *ngIf="!notesTrash?.length  && !loader " class="text-center">
+      <span class="material-icons">delete_sweep</span>
+      <p>No notes in Trash</p>
+		</div>
+	</div>
+ 
 </div>
 <div class="modal fade" #noteTrashbox>
   <div class="modal-dialog w-50">

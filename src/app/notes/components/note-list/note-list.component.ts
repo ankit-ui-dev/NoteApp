@@ -44,6 +44,7 @@ export class NoteListComponent implements OnInit {
   public searchkeyword = '';
   public searchcolor = '';
   public searchtags = '';
+  loader=false;
 
   notesFrom = new FormGroup({});
   filterForm = new FormGroup({});
@@ -58,7 +59,7 @@ export class NoteListComponent implements OnInit {
   ngOnInit(): void {
     this.userId = JSON.parse(localStorage.getItem('userData') || '').id;
     this.notesFrom = new FormGroup({
-      noteTitleName: new FormControl(null, Validators.required),
+      noteTitleName: new FormControl(null, [Validators.required, Validators.minLength(4), Validators.maxLength(35)]),
       noteTag: new FormControl(null),
       noteText: new FormControl(null, Validators.required),
       noteColor: new FormControl(),
@@ -69,9 +70,11 @@ export class NoteListComponent implements OnInit {
   }
   // Get Note List here
   public getNoteList() {
+    this.loader=true;
     const getNoteListURL = `https://note-square-default-rtdb.firebaseio.com/${this.userId}/notes.json`;
     this.http.get<any>(getNoteListURL).subscribe((res) => {
       const noteResult = res && Object.values(res);
+      
       if (noteResult && noteResult.length) {
         const noteLatest = noteResult.reverse();
         this.notes =
@@ -82,6 +85,7 @@ export class NoteListComponent implements OnInit {
             return x;
           }) || [];
       }
+      this.loader=false;
     });
   }
 

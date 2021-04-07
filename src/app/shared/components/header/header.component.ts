@@ -87,5 +87,6 @@ export class HeaderComponent implements OnInit {
   public onlogout() {
     this.authService.onLogoutCall();
     this.toggleValue = false;
+    this.closeProfileToggle();
   }
 }

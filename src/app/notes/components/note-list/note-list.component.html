@@ -46,10 +46,15 @@
 			</div>
 		</div>
 	</div>
-	<div *ngIf="!notes?.length"
-		class="d-flex justify-content-center align-items-center flex-column vh-height not-found-text">
-		<span class="material-icons">description</span>
-		<p>Your Notes appear here</p>
+
+	<div class="d-flex justify-content-center align-items-center not-found-text">
+		<div class="spinner-border text-light text-center" role="status" *ngIf="loader">
+			<span class="sr-only">Loading...</span>
+		</div>
+		<div *ngIf="!notes?.length && !loader " class="text-center">
+			<span class="material-icons">description</span>
+			<p>Your Notes appear here</p>
+		</div>
 	</div>
 </div>
 <button type="button" (click)="onAddModelNotes()" class="add-list-button"> <span class="material-icons"> add </span>
@@ -61,8 +66,23 @@
 				<div class="modal-body white">
 					<div class="form-group">
 						<input type="text" class="form-control" id="title" formControlName="noteTitleName"
-							placeholder="Title"  min-length="5"/>
-					
+							placeholder="Title" min-length="5" />
+
+							<div class="invalid-feedback" [ngClass]="!notesFrom?.get('noteTitleName')?.valid  ? 'd-block' : ''">		
+								<span *ngIf="notesFrom?.get('noteTitleName')?.errors?.required && notesFrom?.get('noteTitleName')?.touched">
+									Please Enter Title
+								</span>
+								<span *ngIf="notesFrom?.get('noteTitleName')?.errors?.minlength && notesFrom?.get('noteTitleName')?.touched">
+									Minimum 4 character
+								</span>
+								
+								<span *ngIf="notesFrom?.get('noteTitleName')?.errors?.maxlength && notesFrom?.get('noteTitleName')?.touched">
+									Maximum 35 character
+								</span>
+
+							 </div>
+
+							
 					</div>
 					<div class="form-group">
 						<select class="form-control" formControlName="noteTag">
@@ -72,6 +92,11 @@
 					<div class="form-group">
 						<textarea class="form-control" formControlName="noteText" id="notes" rows="3"
 							placeholder="Take a note here.." min-lenth="5"></textarea>
+							<div class="invalid-feedback" [ngClass]="!notesFrom?.get('noteText')?.valid  ? 'd-block' : ''">		
+								<span *ngIf="notesFrom?.get('noteText')?.errors?.required && notesFrom?.get('noteText')?.touched">
+									Please Enter Title
+								</span>
+							</div>
 					</div>
 					<div class="form-group">
 						<select class="form-control" formControlName="noteColor">
