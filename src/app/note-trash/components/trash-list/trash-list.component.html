@@ -1,0 +1,36 @@
+<div class="container p-3">
+  <div [ngClass]="gridView ? 'card-columns' : ''">
+    <div class="card" *ngFor="let note of notesTrash; let i = index"
+      [ngStyle]="{'background-color': note.noteColor, 'order': i  }">
+      <div class="card-body">
+        <h6 class="card-title">{{ note.noteTitleName }}</h6>
+        <p class="card-text">{{ note.noteText }}</p>
+        <span class="badge badge-light">{{note.noteTag}}</span>
+        <h6>{{note.noteUpdatedTime | date }}</h6>
+      </div>
+      <div class="card-details d-flex justify-content-end py-2">
+        <span class="material-icons-sharp px-2" (click)="onRestoreNote(note)"> restore</span>
+        <span class="material-icons-sharp px-2" (click)="onDeleteNote(note)"> delete_forever</span>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!notesTrash?.length"
+    class="d-flex justify-content-center align-items-center flex-column vh-height  not-found-text">
+    <span class="material-icons">delete_sweep</span>
+    <p>No notes in Trash</p>
+  </div>
+</div>
+<div class="modal fade" #noteTrashbox>
+  <div class="modal-dialog w-50">
+    <div class="modal-content">
+      <div class="modal-body text-white">
+        {{deleteMessage}}
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-light" type="button" (click)="onDeleteConfirm()">Ok</button>
+        <button type="button" class="btn btn-light" (click)="onModalBoxClose()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+<app-toasts #toastComponent [toastMessage]="message"></app-toasts>

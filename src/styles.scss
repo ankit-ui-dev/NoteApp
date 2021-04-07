@@ -1,0 +1,326 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,600&display=swap");
+@import "styles/variables.scss";
+
+@import "material-icons/iconfont/material-icons.scss";
+.header {
+  height: 65px;
+  background-color: $black;
+  border-bottom: 1px solid $dark-border;
+}
+body {
+  background: $black;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  padding-top: 65px;
+  height: 100vh;
+}
+.form {
+  width: 50%;
+  border: 1px solid #5f6368;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0px 1px 10px #040404;
+}
+.modal-dialog{
+  width: 50%;
+}
+a {
+  color: #ffffff80;
+  cursor: pointer;
+}
+.btn:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
+  opacity: 0.17;
+}
+
+.white {
+  color: #fff;
+}
+
+main {
+  background-color: $black;
+  height: calc(100vh - 65px);
+}
+.search input[type="text"] {
+  background-color: $black;
+}
+.nav-link::after {
+  width: 100%;
+  border-bottom: 1px solid #5f6368;
+}
+.profile-img {
+  width: 40px;
+  cursor: pointer;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #3926a5;
+  color: $white;
+  text-align: center;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+.add-list-button {
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+  color: $black;
+  text-align: center;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  box-shadow: 0px 1px 10px #ffffff5e;
+}
+
+.vh-height {
+  height: calc(100vh - 65px);
+}
+
+.not-found-text {
+  color: #9aa0a6;
+  p {
+    font-size: 35px;
+    text-transform: capitalize;
+  }
+  span {
+    font-size: 70px;
+  }
+}
+.menu-btn {
+  background: transparent;
+  color: #fff;
+  font-size: 24px;
+  border: 1px solid #fff;
+  width: 35px;
+  border-radius: 5px;
+  position: relative;
+  top: 5px;
+}
+.show {
+  display: block;
+}
+.modal {
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background: #040404e0;
+}
+.modal-content {
+  border: 5px solid rgba(0, 0, 0, 0.2);
+  background: $black;
+}
+.modal-footer {
+  border: 0px;
+}
+.nav-item {
+  .nav-link {
+    &:hover {
+      color: $white;
+    }
+  }
+  .active {
+    background-color: #fff0;
+    border-radius: 5px;
+    color: #ffffff;
+    border: 1px solid #ffffff80;
+  }
+}
+.close {
+  color: #ffffff;
+  opacity: 1;
+}
+.profile-master {
+  width: 200px;
+  position: absolute;
+  top: 50px;
+}
+.profile-card {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  height: 250px;
+  overflow: hidden;
+  .background-block {
+    background-color: $black;
+    float: left;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+  }
+  .card-content {
+    width: 100%;
+    padding: 10px;
+    color: #232323;
+    float: left;
+    background: #efefef;
+    height: 50%;
+    border-radius: 0 0 5px 5px;
+    position: relative;
+    z-index: 9999;
+    &::before {
+      content: "";
+      background: #efefef;
+      width: 120%;
+      height: 100%;
+      left: 0px;
+      bottom: 51px;
+      position: absolute;
+      z-index: -1;
+      transform: rotate(-13deg);
+    }
+  }
+  .profile {
+    border-radius: 50%;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    max-width: 50px;
+    opacity: 1;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 1);
+    transform: translate(-50%, 0%);
+    z-index: 999;
+  }
+  h2 {
+    margin: 0 0 5px;
+    font-weight: 600;
+    font-size: 20px;
+    small {
+      display: block;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+  }
+  h6 {
+    margin-top: 10px;
+    i {
+      font-size: 15px;
+    }
+  }
+}
+
+.sidebar-sticky {
+  height: 100%;
+  box-shadow: 0px 0px 21px #000;
+  border-top-right-radius: 10px;
+}
+.toast {
+  position: fixed;
+  opacity: 1;
+  bottom: 20px;
+  right: 20px;
+}
+
+.card-details {
+  opacity: 0;
+}
+.card {
+  background-color: transparent ;
+  border: 1px solid #ffffff80;
+  color: #e8eaed;
+  margin-bottom: 2rem !important;
+  box-shadow: 0px 4px 5px #000000;
+
+  &:hover {
+    .card-details {
+      opacity: 1;
+       span{
+         cursor: pointer;
+       }
+    }
+  }
+  .card-text {
+    font-weight: 200;
+  }
+}
+
+.message-box {
+  position: fixed;
+  opacity: 1;
+  bottom: 50px;
+  right: 20px;
+  flex-basis: 350px;
+  max-width: 350px;
+  font-size: 0.875rem;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 10%);
+  border-radius: 0.25rem;
+}
+
+.form-group input[type=text],input[type=email], select, textarea{
+  width: 100%;
+  color:white;
+  background-color :$black !important;
+  box-sizing: border-box;
+
+}
+select option {
+  margin: 40px;
+  background:$black;
+  color: #fff;
+  border:2px solid grey;
+}
+
+.search{
+  border: 1px solid grey;
+  margin: 15px 0px;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 5px;
+
+}
+
+//scroll Bar
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.list-group li{
+  background-color: $black;
+  border: 0px;
+}
+
+@media only screen and (max-width: 767px) {
+ main{
+   height: 100%;
+ }
+  .nav {
+     background: $black;
+  }
+  .nav-item{
+     width:100%
+  }
+  .modal-dialog{
+    width: 50%;
+  }
+}
+
+input.ng-valid{
+  border: 1px solid #ced4da !important;
+}
+
+input.ng-touched{
+  border: 1px solid red;
+}

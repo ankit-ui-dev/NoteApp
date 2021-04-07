@@ -1,0 +1,13 @@
+<app-header #header></app-header>
+<main class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 d-flex px-0">
+      <div class="flex-fill vh-height col-md-2  px-0" *ngIf="isAuthenticated  && header.toggleValue">
+        <app-side-navigation [toggleMenu]="header.toggleValue"></app-side-navigation>
+      </div>
+      <div class="overflow-auto flex-fill">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</main>

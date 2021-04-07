@@ -1,0 +1,52 @@
+
+|-- app
+     |-- core
+          |-- [+] authentication
+          |-- [+] guards
+          |-- [+] interceptors
+          |-- [+] services
+          |-- [+] constants
+          |-- core.module.ts    
+     |-- Notes
+           |-- [+] components
+           |-- [+] constants
+           |-- [+] models
+           |-- [+] pages
+           |-- [+] services
+           |-- dashboard-routing.module.ts
+           |-- dashboard.module.ts     
+      |-- Trash (Next)
+           |-- [+] components
+           |-- [+] constants
+           |-- [+] models
+           |-- [+] pages
+           |-- [+] services
+           |-- dashboard-routing.module.ts
+           |-- dashboard.module.ts          |-- settings
+     |-- package-config
+     |-- exception-info
+     |-- unconnected-trips
+     |-- shared
+          |-- [+] components
+          |-- [+] directives
+          |-- [+] pipes
+          |-- [+] models
+          |-- [+] module
+          |-- shared.module.ts
+      |-- app-routing.module.ts
+      |-- app.module.ts
+|-- config
+|-- environments
+|-- assets
+     |-- images
+     |-- icons
+     |-- fonts
+     |-- files
+|-- styles
+     |-- styles.scss
+
+
+
+
+
+

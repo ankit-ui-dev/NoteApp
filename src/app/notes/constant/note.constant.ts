@@ -1,0 +1,1 @@
+export const FIRE_BASE_API = 'https://note-square-default-rtdb.firebaseio.com'; 
